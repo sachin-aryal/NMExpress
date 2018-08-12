@@ -1,0 +1,15 @@
+[07-Aug-2016 15:09:07 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (30-11--0001) at position 0 (3): Unexpected character' in /home/nepalexp/public_html/app/Customer/saveProfile.php:18
+Stack trace:
+#0 /home/nepalexp/public_html/app/Customer/saveProfile.php(18): DateTime->__construct('30-11--0001')
+#1 {main}
+  thrown in /home/nepalexp/public_html/app/Customer/saveProfile.php on line 18
+[07-Aug-2016 15:09:20 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (30-11--0001) at position 0 (3): Unexpected character' in /home/nepalexp/public_html/app/Customer/saveProfile.php:18
+Stack trace:
+#0 /home/nepalexp/public_html/app/Customer/saveProfile.php(18): DateTime->__construct('30-11--0001')
+#1 {main}
+  thrown in /home/nepalexp/public_html/app/Customer/saveProfile.php on line 18
+[07-Aug-2016 15:10:26 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (30-11--0001) at position 0 (3): Unexpected character' in /home/nepalexp/public_html/app/Customer/saveProfile.php:18
+Stack trace:
+#0 /home/nepalexp/public_html/app/Customer/saveProfile.php(18): DateTime->__construct('30-11--0001')
+#1 {main}
+  thrown in /home/nepalexp/public_html/app/Customer/saveProfile.php on line 18

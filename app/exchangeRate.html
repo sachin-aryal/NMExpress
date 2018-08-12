@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Assets/Js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function(){
+
+            $.ajax({
+                url:"Controller/latestRate.php",
+                success:function(rate){
+                    var rateJson = JSON.parse(rate);
+                    $("#todayRate").html(rateJson.todayRate);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id = "todayRate"></div>
+</body>
+</html>

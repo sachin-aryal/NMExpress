@@ -1,0 +1,318 @@
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title> NME - Nepal Money Exchange</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="title" content="Nepal Money Exchange"/>
+    <meta name="description" content="An Australia based Money transfer Company Established in 2016,Sourced by our outstanding professional Team, more or less a pioneer in payments, you can be sure that your funds will Transfer safely and securely."/>
+    <meta name="keywords" content="Money transfer,Sending Money To Nepal,Australia,Online Remittance,Faster Transfer,Cargo Service To Nepal,Import Export Nepal,Courier To Nepal,Website development,Remiitance Software,Mobile Money"/>
+    <link rel="shortcut icon" type="image/png" href="img/fav.png"/>
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/lightbox.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link id="css-preset" href="css/preset1.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script src="js/jquery.js"></script>
+    <script src="app/Assets/Js/jquery.blockUI.js"></script>
+
+
+   <style>
+       #trackError{
+           color:red;
+       }
+       p#paymentDate {
+           display: inline-block;
+       }
+       p#paymentAmount {
+           display: inline-block;
+       }
+       p#paymentStatus {
+           display: inline-block;
+       }
+
+
+   </style>
+
+    <script type="text/javascript">
+        $(function(){
+
+            // $("#currencyTodayRate").val(80.50);
+            $.ajax({
+                url:"app/Controller/latestRate.php",
+                success:function(rate){
+                    var rateJson = JSON.parse(rate);
+                    $("#currencyTodayRate").val(rateJson.currencyTodayRate);
+
+                }
+            });
+
+            $.ajax({
+                url:"app/Controller/latestRate.php",
+                success:function(rate){
+                    var rateJson = JSON.parse(rate);
+                    $("#todayRate").val(rateJson.todayRate);
+
+                }
+            });
+
+        });
+        function blockUi(){
+            $.blockUI({ css: {
+                border: 'none',
+                padding: '15px',
+                backgroundColor: '#000',
+                '-webkit-border-radius': '10px',
+                '-moz-border-radius': '10px',
+                opacity: .5,
+                color: '#fff'
+            } });
+        }
+
+        function unBlockUi(){
+            $.unblockUI();
+        }
+        function saveSubscriber(){
+
+            $("#notifyCloseButton").click();
+            blockUi();
+            var email = $("#email").val();
+            $.ajax({
+                url:"app/Controller/saveSubscriber.php",
+                data: {email:email},
+                type: "POST",
+                success:function(success){
+                    var successJSON = JSON.parse(success);
+                    if(successJSON.success === true){
+
+                        $("#thankyou").show();
+                    }
+                },complete:function(data){
+
+                    unBlockUi();
+                }
+            });
+        }
+
+        function fetchTrackOrderWebsite(){
+            var senderEmail = $("#senderEmail").val();
+            var pinNumber = $("#pinNumber").val();
+            blockUi();
+            $.ajax({
+                type:"POST",
+                url:"app/Controller/fetchTransactionStatusWebsite.php",
+                data:{senderEmail:senderEmail,pinNumber:pinNumber},
+                success:function (data) {
+                    console.log(data);
+                    var successJSON = JSON.parse(data);
+                    $("#moneyTrackResult").empty();
+                    $("#moneyTrackResult").removeClass("hide").append(successJSON.status)
+                },error:function (err) {
+
+                },complete:function(data){
+
+                    unBlockUi();
+                }
+            });
+            return false;
+        }
+
+    </script>
+
+</head>
+<body  style="background: whitesmoke !important;">
+
+<div class="row_self">
+
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="img/logo.png"/></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutUs.html">About Us</a></li>
+                <li><a href="benefits.html">Benefits</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="faq.html">FAQS</a></li>
+                <li><a href="contactUs.html">Contact Us</a></li>
+                <li><a></a></li>
+                <li><a></a></li>
+                <li>
+                    <div class="dateBox">
+                        <a href="#" id="currentDate"></a>
+                    </div>
+                </li>
+                <li class="pull-right"><div class="loginButtonAtTop"><a href="http://nepalexpress.com.au/app"> Login  | Register</a> </div></li>
+                <li><a></a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class="phoneNumber">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h4 class="text-center center-block">
+            Call us at 0426602903 , 0450954044
+        </h4>
+    </div>
+    <div class="col-md-4"></div>
+
+</div>
+<div class="clearfix"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="heading text-center col-sm-8 col-sm-offset-2 ">
+            <h2>Money Tracker</h2>
+            <p>
+                Enter the details below and get the real time updates on your money transfer status.
+            </p>
+        </div>
+    </div>
+
+    <div class="moneyTrackerForm">
+            <div>
+                <div class="enter"></div>
+
+                <h3 class="text-success text-center"> Enter Details Below </h3>
+                <h4 id="moneyTrackResult" class="hide text-center"></h4>
+                <div class="enter"></div>
+                <div class="enter"></div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="text" name="senderName" id="senderEmail" class="form-control" placeholder="Sender's Email" required="required">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="text" name="pinNumber" id="pinNumber" class="form-control" placeholder="Pin Number" required="required">
+                    </div>
+                </div>
+                &nbsp;&nbsp;&nbsp;
+                <input type="submit" value="Track Transfer" class="btn btn-success" onclick="fetchTrackOrderWebsite()"/>
+            </div>
+    </div>
+</div>
+<br><br>
+<div class="footer-distributed" style="background-color:rgb(51, 56, 59) ">
+    <div class="container">
+        <div class="row no-pad no-margin">
+            <div class="col-md-4 no-pad">
+                <div class="footer-left">
+                    <>
+                    <img src="img/logo.png" class="center-block" style="height:120px;width:220px;"/>
+                    <h3 style="text-decoration:underline;color:white;font-size:24px;text-align:center"> Find Us On </h3><br>
+                    <div class="row no-pad">
+                        <div class="col-md-6 no-pad">
+                            <a href="#"><img src="img/androidLogo.png"/></a>
+                        </div>
+                        <div class="col-md-6 no-pad">
+                            <a href="#"><img src="img/apple.png" class="center-block"/></a>
+                        </div>
+                    </div>
+                    <div class="footer-icons">
+                        <div class="row no-pad no-margin">
+                            <div class="col-md-6 no-pad">
+                                <a href="https://www.facebook.com/nmeaustralia/?fref=ts" class="center-block fbLogoColor"><i class="fa fa-facebook center-block "></i></a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="#" class="twitterLogoColor"><i class="fa fa-twitter center-block"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 no-pad">
+                <br>
+                <div class="footer-center">
+                    <h3 style="text-decoration:underline;color:white;font-size:24px;padding-left: 29px"> Contacts </h3>
+                    <div>
+                        <i class="fa fa-map-marker"></i>
+                        <p><span>17/17 Everton Road </span>Strathfield, NSW</p>
+                    </div>
+
+                    <p> <i class="fa fa-phone"></i>
+                        0426602903, 0450954044</p>
+
+                    <div>
+                        <i class="fa fa-envelope"></i>
+                        <p><a href="mailto:info@nepalexpress.com.au" style="color:white">info@nepalexpress.com.au</a></p>
+                    </div>
+                    <div class="viberImage">
+                        <img src="img/viber.png"/>
+                             <span class="colorWhite viberNumber">  &nbsp;&nbsp;&nbsp;0426602903
+                               ,&nbsp;0450954044</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-4 no-pad">
+                <div class="footer-right">
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6">
+                            <h3 style="text-decoration:underline;color:white;font-size:24px;"> Links </h3>
+                            <br>
+                            <a href="bankDetails.html"> Bank Details</a><br><br>
+                            <a href="privacy.html"> Privacy Policy</a><br><br>
+                            <a href="amlPolicy.html"> AML Policy</a><br><br>
+                            <a href="benefits.html"> Benefits</a><br><br>
+                            <br><br>
+                        </div>
+                    </div>
+                    <p class="footer-company-name text-center"> Nepal Money Express (NME) &copy; 2016</p><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="clearfix"></div>
+
+<!-- Trigger the modal with a button -->
+<script>
+    var d = new Date();
+    document.getElementById("currentDate").innerHTML = d.toDateString();
+</script>
+<script type="text/javascript" src="js/jquery.inview.min.js"></script>
+<script type="text/javascript" src="js/wow.min.js"></script>
+<script type="text/javascript" src="js/mousescroll.js"></script>
+<script type="text/javascript" src="js/smoothscroll.js"></script>
+<script type="text/javascript" src="js/jquery.countTo.js"></script>
+<script type="text/javascript" src="js/lightbox.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script>
+    $('#myCarousel').carousel({
+        interval:   4000
+    });
+</script>
+<script>
+    function getConvertedRate() {
+        var userInput = $('#ausDollar').val();
+        if(userInput==''){
+            $('#currencyTodayRate').val('');
+        }else{
+            var exchangeRate = $('#ausDollarRate').val();
+            var nrs = userInput*exchangeRate;
+            $('#currencyTodayRate').val(nrs);
+        }
+    }
+</script>
+</body>
+</html>

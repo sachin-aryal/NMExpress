@@ -1,0 +1,604 @@
+
+
+<html>
+
+<head>
+
+    <title> NME - Nepal Money Exchange</title>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <meta name="title" content="Nepal Money Exchange"/>
+
+    <meta name="description" content="An Australia based Money transfer Company Established in 2016,Sourced by our outstanding professional Team, more or less a pioneer in payments, you can be sure that your funds will Transfer safely and securely."/>
+
+    <meta name="keywords" content="Money transfer,Sending Money To Nepal,Australia,Online Remittance,Faster Transfer,Cargo Service To Nepal,Import Export Nepal,Courier To Nepal,Website development,Remiitance Software,Mobile Money"/>
+
+    <link rel="shortcut icon" type="image/png" href="img/fav.png"/>
+
+    <link href="css/animate.min.css" rel="stylesheet"> 
+
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+
+  <link href="css/lightbox.css" rel="stylesheet">
+
+  <link href="css/main.css" rel="stylesheet">
+
+  <link id="css-preset" href="css/preset1.css" rel="stylesheet">
+
+  <link href="css/responsive.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"/>
+
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=true&key=AIzaSyDiyaGjJrmSEHFUjTi9FULPgDtlivdiDp0"></script>
+
+  <link rel="stylesheet" href="css/demo.css">
+
+  <link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css">
+
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+    <script>
+
+function initialize() {
+
+  var mapProp = {
+
+    center:new google.maps.LatLng(-33.871692, 151.094),
+
+    zoom:15,
+
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+
+  };
+
+  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+}
+
+
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+</head>
+
+<body style="background-image: url('img/wallpaperBlur.jpg');">
+
+
+
+<div class="row_self">
+
+
+
+    <nav class="navbar navbar-default">
+
+        <div class="navbar-header">
+
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+                <span class="sr-only">Toggle navigation</span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+
+            </button>
+
+            <a class="navbar-brand" href="#"><img src="img/logo.png"/></a>
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav">
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="aboutUs.html">About Us</a></li>
+
+                <li><a href="benefits.html">Benefits</a></li>
+
+                <li><a href="services.html">Services</a></li>
+
+                <li><a href="faq.html">FAQS</a></li>
+
+                <li><a href="contactUs.html">Contact Us</a></li>
+
+                <li><a></a></li>
+
+                <li><a></a></li>
+
+                <li>
+
+                    <div class="dateBox">
+
+                        <a href="#" id="currentDate"></a>
+
+                    </div>
+
+                </li>
+
+                <li class="pull-right"><div class="loginButtonAtTop"><a href="http://nepalexpress.com.au/app"> Login  | Register</a> </div></li>
+
+                <li><a></a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+</div>
+
+<div class="phoneNumber">
+
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4">
+
+        <h4 class="text-center center-block">
+
+            Call us at 0426602903 , 0450954044
+
+        </h4>
+
+    </div>
+
+    <div class="col-md-4"></div>
+
+
+
+</div>
+
+<div class="clearfix"></div>
+
+
+
+
+
+<section id="contact">
+
+    <div id="google-map" class="wow fadeIn" data-latitude="52.365629" data-longitude="4.871331" data-wow-duration="1000ms" data-wow-delay="400ms"></div>
+
+    <div id="contact-us" class="parallax">
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+
+            <div class="enter"></div>
+
+            <p></p>
+
+          </div>
+
+        </div>
+
+        <div class="row">
+
+        	<div class="col-md-6">
+
+        		<h2>Inquiry Form</h2>
+
+        	</div>
+
+        	<div class="col-md-6">
+
+        		<h2>Contact Us</h2>
+
+        	</div>
+
+        </div>
+
+        <div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+
+          <div class="row">
+
+            <div class="col-sm-6">
+
+              <form id="main-contact-form" name="contact-form" method="post" action="inquiryMailSender.php">
+
+              
+
+                <div class="row  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+
+                            	<div class="enter"></div>
+
+
+
+                  <div class="col-sm-6">
+
+                    <div class="form-group">
+
+                      <input type="text" name="name" id = "name" class="form-control" placeholder="Name" required="required">
+
+                    </div>
+
+                  </div>
+
+                  <div class="col-sm-6">
+
+                    <div class="form-group">
+
+                  		<input type="text" name="contact" id = "contactNo" class="form-control" placeholder="Contact Number" required="required">
+
+                	</div>
+
+                  </div>
+
+                </div>
+
+                <div class="form-group">
+
+                      <input type="text" name="address" id="address" class="form-control" placeholder="Address" required="required">
+
+                    </div>
+
+                	<div class="form-group">
+
+                  		      <h4>Inquiry For : <span> <input type="radio" name="for" value="Money Transfer"> &nbsp;&nbsp;Money Transfer &nbsp;&nbsp; <input type="radio" name="for" value="Cargo Service"> &nbsp;&nbsp;Cargo Service</span></h4>
+
+                	</div>
+
+                
+
+                <div class="form-group">
+
+                  <textarea name="message" id="message" class="form-control" rows="4" placeholder="Enter your message" required="required"></textarea>
+
+                </div>                        
+
+                <div class="form-group">
+
+                <button type="submit" class="btn btn-primary">Send Now</button>
+
+                </div>
+
+              </form>   
+
+            </div>
+
+                        
+
+
+
+            <div class="col-sm-6">
+
+              <div class="contact-info wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+
+                <p></p>
+
+                <ul class="address">
+
+                  <li><i class="glyphicon glyphicon-home"></i> <span> &nbsp;&nbsp;Address:</span> &nbsp;&nbsp;  
+Suite 12,3A Railway PDE Kogarah SYDNEY,NSW 2217 </li>
+
+                  <li><i class="glyphicon glyphicon-phone-alt"></i> <span> &nbsp;&nbsp;Phone:</span> &nbsp;&nbsp;0426602903, 0450954044 </li>
+
+                  <li><i class="glyphicon glyphicon-envelope"></i> <span> &nbsp;&nbsp;Email:</span><a href="#"> &nbsp;&nbsp;info@nepalexpress.com.au</a></li>
+
+                </ul>
+
+                <div id="googleMap"></div>                      
+
+              </div>      
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>        
+
+  </section>
+
+
+
+<div id="myModal" class="modal fade" role="dialog">
+
+  <div class="modal-dialog center-block">
+
+
+
+    <!-- Modal content-->
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        <h4 class="modal-title">Inquiry Form</h4>
+
+      </div>
+
+      <div class="modal-body">
+
+			
+
+			 <form id="main-contact-form" name="contact-form" method="post" action="#">
+
+              
+
+                <div class="row  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+
+                            	<div class="enter"></div>
+
+
+
+                  <div class="col-sm-6">
+
+                    <div class="form-group">
+
+                      <input type="text" name="name" class="form-control" placeholder="Name" required="required">
+
+                    </div>
+
+                  </div>
+
+                  <div class="col-sm-6">
+
+                    <div class="form-group">
+
+                  		<input type="number" name="contactNumber" class="form-control" placeholder="Contact Number" required="required">
+
+                	</div>
+
+                  </div>
+
+                </div>
+
+                <div class="form-group">
+
+                      <input type="text" name="address" class="form-control" placeholder="Address" required="required">
+
+                    </div>
+
+                	<div class="form-group">
+
+                  		      <h4>Inquiry For : <span> <input type="radio" name="optradio"> &nbsp;&nbsp;Money Transfer &nbsp;&nbsp; <input type="radio" name="optradio"> &nbsp;&nbsp;Cargo Service</span></h4>
+
+                	</div>
+
+                
+
+                <div class="form-group">
+
+                  <textarea name="message" id="message" class="form-control" rows="4" placeholder="Enter your message" required="required"></textarea>
+
+                </div>                        
+
+                <div class="form-group">
+
+                    <a href="#" class="btn btn-primary">Send Now</a>
+
+                </div>
+
+              </div>   
+
+			
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+</div>
+
+
+
+	<br>
+
+
+
+<div class="footer-distributed" style="background-color:rgb(51, 56, 59) ">
+
+    <div class="container">
+
+        <div class="row no-pad no-margin">
+
+            <div class="col-md-4 no-pad">
+
+                <div class="footer-left">
+
+                    <>
+
+                    <img src="img/logo.png" class="center-block" style="height:120px;width:220px;"/>
+
+                    <h3 style="text-decoration:underline;color:white;font-size:24px;text-align:center"> Find Us On </h3><br>
+
+                    <div class="row no-pad">
+
+                        <div class="col-md-6 no-pad">
+
+                            <a href="#"><img src="img/androidLogo.png"/></a>
+
+                        </div>
+
+                        <div class="col-md-6 no-pad">
+
+                            <a href="#"><img src="img/apple.png" class="center-block"/></a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="footer-icons">
+
+                        <div class="row no-pad no-margin">
+
+                            <div class="col-md-6 no-pad">
+
+                                <a href="https://www.facebook.com/nmeaustralia/?fref=ts" class="center-block fbLogoColor"><i class="fa fa-facebook center-block "></i></a>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <a href="#" class="twitterLogoColor"><i class="fa fa-twitter center-block"></i></a>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-4 no-pad">
+
+                <br>
+
+                <div class="footer-center">
+
+                    <h3 style="text-decoration:underline;color:white;font-size:24px;padding-left: 29px"> Contacts </h3>
+
+                    <div>
+
+                        <i class="fa fa-map-marker"></i>
+
+                        <p><span>Suite 12,3A Railway PDE</span>Kogarah SYDNEY,NSW 2217</p>
+
+                    </div>
+
+
+
+                    <p> <i class="fa fa-phone"></i>
+
+                        0426602903, 0450954044</p>
+
+
+
+                    <div>
+
+                        <i class="fa fa-envelope"></i>
+
+                        <p><a href="mailto:info@nepalexpress.com.au" style="color:white">info@nepalexpress.com.au</a></p>
+
+                    </div>
+
+                    <div class="viberImage">
+
+                        <img src="img/viber.png"/>
+
+                             <span class="colorWhite viberNumber">  &nbsp;&nbsp;&nbsp;0426602903
+
+                               ,&nbsp;0450954044</span>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 no-pad">
+
+                <div class="footer-right">
+
+                    <br>
+
+                    <div class="row">
+
+                        <div class="col-md-6"></div>
+
+                        <div class="col-md-6">
+
+                            <h3 style="text-decoration:underline;color:white;font-size:24px;"> Links </h3>
+
+                            <br>
+
+                            <a href="bankDetails.html"> Bank Details</a><br><br>
+
+                            <a href="privacy.html"> Privacy Policy</a><br><br>
+
+                            <a href="amlPolicy.html"> AML Policy</a><br><br>
+
+                            <a href="benefits.html"> Benefits</a><br><br>
+
+                            <br><br>
+
+                        </div>
+
+                    </div>
+
+                    <p class="footer-company-name text-center"> Nepal Money Express (NME) &copy; 2016</p><br>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</div>
+
+<div class="clearfix"></div>
+
+<script>
+
+    var d = new Date();
+
+    document.getElementById("currentDate").innerHTML = d.toDateString();
+
+
+
+</script>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="js/jquery.inview.min.js"></script>
+
+  <script type="text/javascript" src="js/wow.min.js"></script>
+
+  <script type="text/javascript" src="js/mousescroll.js"></script>
+
+  <script type="text/javascript" src="js/smoothscroll.js"></script>
+
+  <script type="text/javascript" src="js/jquery.countTo.js"></script>
+
+  <script type="text/javascript" src="js/lightbox.min.js"></script>
+
+  <script type="text/javascript" src="js/main.js"></script>
+
+<script>
+
+	$('#myCarousel').carousel({
+
+		interval:   4000
+
+	});
+
+</script>
+
+</body>
+
+</html>

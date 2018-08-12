@@ -1,0 +1,10 @@
+[07-Aug-2016 07:47:16 UTC] PHP Warning:  mysqli_connect(): (42000/1044): Access denied for user 'nepalexp_admin'@'localhost' to database 'nepalexp_db' in /home/nepalexp/public_html/app/Common/AdminDbConnection.php on line 12
+[07-Aug-2016 07:47:16 UTC] PHP Fatal error:  Call to a member function query() on boolean in /home/nepalexp/public_html/app/phpMailer/test.php on line 5
+[07-Aug-2016 07:47:54 UTC] PHP Warning:  mysqli_connect(): (42000/1044): Access denied for user 'nepalexp_admin'@'localhost' to database 'nepalexp_db' in /home/nepalexp/public_html/app/Common/AdminDbConnection.php on line 12
+[07-Aug-2016 07:47:54 UTC] PHP Fatal error:  Call to a member function query() on boolean in /home/nepalexp/public_html/app/phpMailer/test.php on line 5
+[07-Aug-2016 07:49:01 UTC] PHP Warning:  mysqli_connect(): (42000/1044): Access denied for user 'nepalexp_admin'@'localhost' to database 'nepalexp_db' in /home/nepalexp/public_html/app/Common/AdminDbConnection.php on line 12
+[07-Aug-2016 07:49:01 UTC] PHP Fatal error:  Call to a member function query() on boolean in /home/nepalexp/public_html/app/phpMailer/test.php on line 7
+[07-Aug-2016 07:49:55 UTC] PHP Warning:  mysqli_connect(): (42000/1044): Access denied for user 'nepalexp_admin'@'localhost' to database 'nepalexp_db' in /home/nepalexp/public_html/app/Common/AdminDbConnection.php on line 12
+[07-Aug-2016 07:49:55 UTC] PHP Fatal error:  Call to a member function query() on boolean in /home/nepalexp/public_html/app/phpMailer/test.php on line 7
+[07-Aug-2016 07:49:58 UTC] PHP Warning:  mysqli_connect(): (42000/1044): Access denied for user 'nepalexp_admin'@'localhost' to database 'nepalexp_db' in /home/nepalexp/public_html/app/Common/AdminDbConnection.php on line 12
+[07-Aug-2016 07:49:58 UTC] PHP Fatal error:  Call to a member function query() on boolean in /home/nepalexp/public_html/app/phpMailer/test.php on line 7
