@@ -150,7 +150,7 @@
                         <a href="#" id="currentDate"></a>
                     </div>
                 </li>
-                <li class="pull-right"><div class="loginButtonAtTop"><a href="app/login.php"> Login  | Register</a> </div></li>
+                <li class="pull-right"><div class="loginButtonAtTop"><a href="app/index.php"> Login  | Register</a> </div></li>
                 <li><a></a></li>
             </ul>
         </div>
@@ -208,7 +208,7 @@
                 <div class="row no-pad">
                     <div class="col-md-4 col-sm-4 col-xs-4">
                         <div class="">
-                            <a href="app/login.php">
+                            <a href="app/index.php">
                                 <button type="button" class="btn btn-success btn-sm buttonRed">Send Money<p>Now<span class="glyphicon glyphicon-menu-right glyphTopRight"></span></p>
                                 </button>
                             </a>
