@@ -37,8 +37,8 @@ if(password_verify($password, $dbPassword)) {
     $_SESSION["username"] = $username;
     $_SESSION["role"] = $role;
     mysqli_close($conn);
-    $returnUrl = $_SESSION["returnUrl"];
-    if(isset($returnUrl)) {
+    if(isset($_SESSION["returnUrl"])) {
+            $returnUrl = $_SESSION["returnUrl"];
            unset($_SESSION["returnUrl"]);
            redirect($returnUrl);
     }
