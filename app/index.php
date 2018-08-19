@@ -32,6 +32,7 @@ if(isset($_GET["failedMessage"]))
 
 if(isset($_SESSION["username"])){
     goToDashBoard("");
+    return;
 }
 else{
     ?>

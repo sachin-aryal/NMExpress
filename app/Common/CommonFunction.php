@@ -5,7 +5,7 @@
  * Date: 4/30/2016
  * Time: 5:04 PM
  */
-
+ob_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);

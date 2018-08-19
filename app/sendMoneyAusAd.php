@@ -372,7 +372,7 @@ $(".autoDate").on('input', function(){
                 </div>
                 <div class="col-xs-4">
                     <label for="rate">Current Rate in NRS:</label>
-                    <input type="text" class="form-control" name="rate" id="rate" onkeypress="return onlyAmount(event, this)" onkeyup="if(onlyAmount(event,this) && $('#sendingAmount').val().length > 0)newChangeTransactionDetails()" value="<?php echo $rate ?>"/>
+                    <input readonly="readonly" type="text" class="form-control" name="rate" id="rate" onkeypress="return onlyAmount(event, this)" onkeyup="if(onlyAmount(event,this) && $('#sendingAmount').val().length > 0)newChangeTransactionDetails()" value="<?php echo $rate ?>"/>
                 </div>
             </div>
         </div>

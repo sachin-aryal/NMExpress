@@ -1,0 +1,19 @@
+#order-nav li{
+    float: left;
+    padding: 10px;
+    list-style: none;
+    background-color: #d9edf7;
+    cursor: pointer;
+}
+#order-nav{
+    margin-left: -40px;
+}
+.active-order-nav{
+    color: #337ab7 !important;
+    background-color: #ffffff !important;
+    border: 1px solid #f5f5f5;
+}
+#orders-div{
+    border: 5px solid #ececec;
+    margin-top: 15px;
+}

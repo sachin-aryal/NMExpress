@@ -815,3 +815,23 @@ function changeAdmin(){
     });
     return false;
 }
+
+function fetchOrder(el, orderType){
+    blockUi();
+    $.ajax({
+        type:"POST",
+        url:"Controller/fetchOrder.php",
+        data:{orderType:orderType},
+        success:function(data){
+            unBlockUi();
+            $(".active-order-nav").removeClass('active-order-nav');
+            $("#orders-display").empty();
+            $("#orders-display").html(data);
+            $(el).addClass('active-order-nav');
+        },
+        error:function () {
+            unBlockUi();
+        }
+    });
+    return false;
+}

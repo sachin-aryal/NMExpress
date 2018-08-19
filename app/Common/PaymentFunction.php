@@ -21,21 +21,54 @@ function getWholePayments($conn){
     return getPayments($conn, $result, "Both");
 }
 
-function getPendingPayments($conn){
-
-    $result = $conn->query("SELECT * FROM payment_sas WHERE status = 'Pending'");
+function getRecentPendingOrders($conn){
+    $result = $conn->query("SELECT * FROM payment_sas WHERE status = 'Pending' ORDER BY payment_date DESC LIMIT 25");
     return getPayments($conn, $result, "Pending");
 }
 
-function getProcessingPayments($conn, $agentId){
+
+function getPaymentByStatus($conn, $status, $limit=null){
+    if($status == "Pending"){
+        return getPendingPayments($conn, $limit);
+    }elseif ($status == "Processing"){
+        return getProcessingPayments($conn, $limit);
+    }elseif ($status == "Completed"){
+        return getDeliveredPayments($conn, $limit);
+    }else{
+        return getRecentPendingOrders($conn, $limit);
+    }
+}
+
+function getPendingPayments($conn, $limit=null){
+    $query = "SELECT * FROM payment_sas WHERE status = 'Pending'";
+    if($limit != null){
+        $query.=" LIMIT ".$limit;
+    }
+    $result = $conn->query($query);
+    return getPayments($conn, $result, "Pending");
+}
+
+function getProcessingPaymentsByAgent($conn, $agentId){
 
     $result = $conn->query("SELECT * FROM payment_sas WHERE status = 'Processing' and agent_id = " . $agentId);
     return getPayments($conn, $result, "Processing");
 }
 
-function getDeliveredPayments($conn){
+function getProcessingPayments($conn, $limit=null){
+    $query = "SELECT * FROM payment_sas WHERE status = 'Processing'";
+    if($limit != null){
+        $query.=" LIMIT ".$limit;
+    }
+    $result = $conn->query($query);
+    return getPayments($conn, $result, "Processing");
+}
 
-    $result = $conn->query("SELECT * FROM payment_sas WHERE status = 'Delivered'");
+function getDeliveredPayments($conn, $limit=null){
+    $query = "SELECT * FROM payment_sas WHERE status = 'Delivered'";
+    if($limit != null){
+        $query.=" LIMIT ".$limit;
+    }
+    $result = $conn->query($query);
     return getPayments($conn, $result, "Delivered");
 }
 

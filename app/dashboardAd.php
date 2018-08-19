@@ -19,48 +19,33 @@ adminValidator();
     <?php include_once "Include/BootstrapCss.html" ?>
     <script>
         $(function(){
-
-            $(".agentClass").html($(".agentClass").html() + $("#agentsDiv").html());
-
-            $("#dTab1").DataTable({
-                dom: 'Blfrtip',
-                orderClasses: false,
-                buttons: [
-                    {
-                        extend: 'excel',
-                        "oSelectorOpts": { filter: 'applied'},
-                        exportOptions: {
-                            columns: [0,1,2,3,4,5,6,7,8,9,10]
-                        }
-                    }
-                ]
-            });
+            $(".active-order-nav").click();
         });
 
-    function onlyAmount(e, t) {
-        try {
-            if (window.event) {
-                var intCode = window.event.keyCode;
-            }
-            else if (e) {
-                var intCode = e.which;
-            }
-            else { return true; }
-            if (((intCode >=48   && intCode <= 57) || intCode == 46)){
-                return true;
-            }
+        function onlyAmount(e, t) {
+            try {
+                if (window.event) {
+                    var intCode = window.event.keyCode;
+                }
+                else if (e) {
+                    var intCode = e.which;
+                }
+                else { return true; }
+                if (((intCode >=48   && intCode <= 57) || intCode == 46)){
+                    return true;
+                }
 
-            else{
-                notify('error', 'Invalid Amount')
-                 $("#pages").val('');
-                return false;
-            }
+                else{
+                    notify('error', 'Invalid Amount')
+                    $("#pages").val('');
+                    return false;
+                }
 
+            }
+            catch (err) {
+                alert(err.Description);
+            }
         }
-        catch (err) {
-            alert(err.Description);
-        }
-    }
 
     </script>
     <script type="text/javascript" language="javascript" src="Assets/Js/validation.js"></script>
@@ -68,6 +53,9 @@ adminValidator();
         .container{
 
             width: 1321px
+        }
+        #dTab1 tr{
+            height: 35px;
         }
     </style>
 </head>
@@ -174,8 +162,21 @@ if(isset($_SESSION["sendRateChangeEmail"])){
         <div class="col-xs-2">
         </div>
     </div>
-    <div id="pendingOrders">
-        <?php include_once 'pendingPayments.php';?>
+    <div class="row">
+        <div class="col-md-8" id="orders-div">
+            <div class="col-md-12" id="orders">
+                <h3>Orders in Nepal Money Express</h3>
+                <ul id="order-nav">
+                    <li class="active-order-nav" onclick="fetchOrder(this, 'Recent')">Recent Orders</li>
+                    <li onclick="fetchOrder(this, 'Pending')">Pending Orders</li>
+                    <li onclick="fetchOrder(this, 'Processing')">Processing Orders</li>
+                    <li onclick="fetchOrder(this, 'Completed')">Completed Orders</li>
+                </ul>
+            </div>
+            <div class="col-md-12" id="orders-display">
+
+            </div>
+        </div>
     </div>
 </div>
 </body>

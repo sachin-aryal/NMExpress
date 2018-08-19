@@ -13,7 +13,7 @@ nepAgentValidator();
 $todayRate = getExchangeRate($conn);
 
 $agentId = getAgentMainId($conn);
-$processingPayments = getProcessingPayments($conn, $agentId);
+$processingPayments = getProcessingPaymentsByAgent($conn, $agentId);
 ?>
 <html>
 <head>

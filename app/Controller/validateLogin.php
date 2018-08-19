@@ -41,9 +41,11 @@ if(password_verify($password, $dbPassword)) {
             $returnUrl = $_SESSION["returnUrl"];
            unset($_SESSION["returnUrl"]);
            redirect($returnUrl);
+           return;
     }
     else{
         goToDashBoard("../");
+        return;
     }
     
 }
@@ -51,4 +53,5 @@ else {
     mysqli_close($conn);
     $message = "Login failed. Username or Password did not match.";
     redirect("../index.php?msgError=" . $message);
+    return;
 }
