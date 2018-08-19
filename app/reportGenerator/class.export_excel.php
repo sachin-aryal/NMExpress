@@ -59,9 +59,7 @@ class ExportExcel
 		header("Content-Disposition: attachment; filename=$this->filename"); 
 		header("Pragma: no-cache"); 
 		header("Expires: 0"); 
-		print "$header\n$data";  
-
-
+		print "$data";
 	
 	}
 

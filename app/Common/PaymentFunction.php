@@ -234,7 +234,6 @@ function getAustracReportData($conn){
             $eachRow["type_transfer"]="Money";
             $eachRow["description_property"]="";
             $eachRow["pin_no"]=$row["id"];
-            $eachRow["nokey1"]="";
 
             $sender_details = getCustomerInfoFromId($row["sender_id"],$conn);
             $eachRow["customer_name"]=$sender_details["f_name"]." ".$sender_details["l_name"];
@@ -244,17 +243,19 @@ function getAustracReportData($conn){
             }else{
                 $eachRow["customer_dob"]="";
             }
-            $eachRow["nokey2"]="";
-
-
             $eachRow["customer_business_residential_address"]="";//TODO Unknown
-            $eachRow["customer_city"]=$sender_details["unit"];
+            $eachRow["suburb"]="";//TODO Unknown
             $eachRow["customer_state"]=$sender_details["state"];
-            $eachRow["customer_post_code"]=$sender_details["street"];
+            $eachRow["customer_post_code"]=$sender_details["post_code"];
+//            $eachRow["customer_city"]=$sender_details["unit"];
             $eachRow["customer_country"]=$sender_details["country"];
             $eachRow["customer_postal_address"]="";
+            $eachRow["customer_postal_suburb"]="";
+            $eachRow["customer_postal_state"]="";
+            $eachRow["customer_postal_postcode"]="";
+            $eachRow["customer_postal_country"]="";
+            $eachRow["customer_phone"]=$sender_details["mobile_no"];
             $eachRow["customer_email"]=$sender_details["email"];
-            $eachRow["nokey3"]="";
 
 
             if (isset($sender_details["business_id"])) {
@@ -267,64 +268,109 @@ function getAustracReportData($conn){
             $eachRow["customer_number"] = $sender_details["id"];
             $eachRow["customer_account"] = "";
             $eachRow["customer_business_structure"] = "";
-            $eachRow["nokey4"]="";
+            $eachRow["id_type"] = $sender_details["identity_type"];
+            $eachRow["id_type_if_other"] = "";
+            $eachRow["id_number"] = $sender_details["identity_no"];
+            $eachRow["id_issuer"] = "";
+            $eachRow["id_type_2"] = "";
+            $eachRow["id_type_2_if_other"] = "";
+            $eachRow["id_type_2_number"] = "";
+            $eachRow["id_type_2_issuer"] = "";
+            $eachRow["electronic_data_source"] = "";
 
 
             $receiver_info = getReceiverInfoFromCusId($conn,$row["receiver_id"],$row["sender_id"]);
 
             $eachRow["receiver_name"] = $receiver_info["f_name"]." ".$receiver_info["l_name"];
             $eachRow["receiver_dob"] = "";
-            $eachRow["receiver_business_residential_address"] = "";
-            $eachRow["nokey5"]="";
-
-
+            $eachRow["receiver_business_residential_address"] = $receiver_info["city"]." ".$receiver_info["district"].",".$receiver_info["country"];
             $eachRow["receiver_city"] = $receiver_info["city"];
-            $eachRow["receiver_zone"] = $receiver_info["zone"];
-            $eachRow["receiver_district"] = $receiver_info["district"];
+            $eachRow["receiver_state"] = $receiver_info["zone"];
+            $eachRow["receiver_postcode"] = "";
             $eachRow["receiver_country"] = $receiver_info["country"];
-            $eachRow["receiver_phone"] = $receiver_info["phone_no"];
             $eachRow["receiver_postal_address"] = "";
-            $eachRow["receiver_business"] = "";
-            $eachRow["receiver_business_number"] = "";
-            $eachRow["nokey6"]="";
-
-
+            $eachRow["receiver_postal_city"] = "";
+            $eachRow["receiver_postal_state"] = "";
+            $eachRow["receiver_postal_postcode"] = "";
+            $eachRow["receiver_postal_country"] = "";
+            $eachRow["receiver_phone"] = $receiver_info["phone_no"];
+            $eachRow["receiver_email"] = "";
+            $eachRow["receiver_occupation"] = "";
+            $eachRow["receiver_acn"] = "";
+            $eachRow["receiver_business_structure"] = "";
             if(isset($receiver_info["bank_id"])){
                 $bank_details = getBankInfo($conn,$receiver_info["bank_id"]);
                 $eachRow["receiver_account_number"] = $bank_details["account_no"];
                 $eachRow["receiver_bank_name"] = $bank_details["bank_name"];
+                $eachRow["receiver_bank_city"] = $receiver_info["branch_name"];
+                $eachRow["receiver_bank_country"] = $receiver_info["country"];
             }else{
                 $eachRow["receiver_account_number"] = "";
                 $eachRow["receiver_bank_name"] = "";
+                $eachRow["receiver_bank_city"] = "";
+                $eachRow["receiver_bank_country"] = "";
             }
 
-            $eachRow["receiver_bank_country"] = $receiver_info["country"];
-            $eachRow["nokey7"]="";
 
-            $eachRow["accepter_name"] = "NME";
-            $eachRow["accepter_name_other"] = "";
-            $eachRow["accepter_dob"] = "";
-            $eachRow["accepter_business_residental"] = "";
-            $eachRow["accepter_city"]="Strathfield";
-            $eachRow["accepter_state"]="NSW";
-            $eachRow["accepter_postcode"]="";
-            $eachRow["accepter_country"]="Australia";
-            $eachRow["accepter_postal address"]="17/17 Everton Road,Strathfield, NSW";
-            $eachRow["accepter_phone"]="0426602903";
-            $eachRow["accepter_email"]="info@nepalexpress.com.au";
-            $eachRow["accepter_business_activity"]="Money transfer Company";
-            $eachRow["accepter_business_structure"]="";
-            $eachRow["sending_customer_type"]=$sender_details["type"];
-            $eachRow["sending_transfer_type"]="Organization";
-            $eachRow["nokey8"]="";
+            $eachRow["organization_id_no"] = "Sydney";
+            $eachRow["organization_full_name"] = "Nepal Money Express Pty Ltd";
+            $eachRow["organization_address"] = "Suite 12, 3A Railway Pde";
+            $eachRow["organization_city"] = "Kogarah";
+            $eachRow["organization_state"] = "NSW";
+            $eachRow["organization_post_code"] = "2217";
+            $eachRow["organisation_accepting_the_money"] = "yes";
+            $eachRow["organisation_sending_the_transfer_instruction"] = "yes";
 
-            $eachRow["reason"]=$row["reason"];
-            $eachRow["nokey9"]="";
+            $eachRow["organisation_accepting_the_money_if_different_name"] = "";
+            $eachRow["organisation_accepting_the_money_if_different_address"] = "";
+            $eachRow["organisation_accepting_the_money_if_different_city"] = "";
+            $eachRow["organisation_accepting_the_money_if_different_state"] = "";
+            $eachRow["organisation_accepting_the_money_if_different_postcode"] = "";
 
-            $eachRow["person_report"]=$_SESSION["username"];
-            $eachRow["person_job_title"]="ADMIN";
-            $eachRow["person_phone"]="0426602903";
-            $eachRow["person_email"]=$_SESSION["username"];
+            $eachRow["sti_if_different_name"] = "";
+            $eachRow["sti_if_different_other_name"] = "";
+            $eachRow["sti_if_different_dob"] = "";
+            $eachRow["sti_if_different_address"] = "";
+            $eachRow["sti_if_different_state"] = "";
+            $eachRow["sti_if_different_city"] = "";
+            $eachRow["sti_if_different_postcode"] = "";
+            $eachRow["sti_if_different_p_address"] = "";
+            $eachRow["sti_if_different_p_city"] = "";
+            $eachRow["sti_if_different_p_state"] = "";
+            $eachRow["sti_if_different_p_postcode"] = "";
+            $eachRow["sti_if_different_p_phone"] = "";
+            $eachRow["sti_if_different_p_email"] = "";
+            $eachRow["sti_if_different_p_occupation"] = "";
+            $eachRow["sti_if_different_p_abn"] = "";
+            $eachRow["sti_if_different_p_business_structure"] = "";
+
+            $eachRow["rti_full_name"] = "Agrima Western Union Money Transfer";
+            $eachRow["rti_city"] = "Sunsari";
+            $eachRow["rti_address"] = "Ithari -1";
+            $eachRow["rti_state"] = "Kosi";
+            $eachRow["rti_post_code"] = "977";
+            $eachRow["rti_post_country"] = "Nepal";
+            $eachRow["is_organization_distributing_money"] = "Yes";
+            $eachRow["is_there_seperate_Retail_Outlet"] = "No";
+
+            $eachRow["distributed_if_different_full_name"] = "";
+            $eachRow["distributed_if_different_address"] = "";
+            $eachRow["distributed_if_different_city"] = "";
+            $eachRow["distributed_if_different_state"] = "";
+            $eachRow["distributed_if_different_postcode"] = "";
+            $eachRow["distributed_if_different_country"] = "";
+            $eachRow["ro_different_fullname"] = "";
+            $eachRow["ro_different_address"] = "";
+            $eachRow["ro_different_city"] = "";
+            $eachRow["ro_different_state"] = "";
+            $eachRow["ro_different_postcode"] = "";
+            $eachRow["ro_different_country"] = "";
+            $eachRow["reason_for_transfer"] = $row["reason"];
+
+            $eachRow["person_report"]="KAMAL BISTA";
+            $eachRow["person_job_title"]="DIRECTOR";
+            $eachRow["person_phone"]="61426602903";
+            $eachRow["person_email"]="bistakamal07@gmail.com";
             $rawData[$i++] = $eachRow;
         }
     }
