@@ -17,3 +17,19 @@
     border: 5px solid #ececec;
     margin-top: 15px;
 }
+
+#dTab1 tr {
+    height: 35px;
+}
+.pagination ul{
+    margin-left: -30px;
+}
+.pagination li {
+    padding: 4px;
+    list-style: none;
+    float: left;
+    font-size: 15px;
+}
+#page-form{
+    margin-top: 21px;
+}

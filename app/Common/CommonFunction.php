@@ -28,7 +28,7 @@ function checkSession(){
 
 function checkReturnUrl($returnUrl){
     if(!isset($_SESSION["username"])) {
-       $_SESSION["returnUrl"] = $returnUrl;
+        $_SESSION["returnUrl"] = $returnUrl;
     }
 }
 
@@ -121,10 +121,10 @@ function getExchangeRateForGraph($conn){
     $data = array();
     $i=0;
     while($row = mysqli_fetch_assoc($result)){
-    $data[] = $row;
+        $data[] = $row;
     }
     return $data;
-  
+
 }
 
 function getBuyerRate($conn){
@@ -226,7 +226,7 @@ function activateCustomer($conn,$id){
     if($result){
         return true;
     }else{
-       return false;
+        return false;
     }
 }
 
@@ -548,14 +548,14 @@ function getCustomerList($conn){
 
 function getUnactivatedCustomerList($conn){
 
-     $customerList = array();
-    $i=0;
-    $result = $conn->query("SELECT b.id as uid,b.email as email,b.f_name as f_name,b.l_name as l_name FROM user_sas a, customer_sas b WHERE a.id=b.user_id AND a.activated = 0");
-   while($row = mysqli_fetch_assoc($result)){
-    $customerList[]= $row;
+    $customerList = array();
+    $result = $conn->query("select *from user_sas WHERE activated=0");
+    $i = 0;
+    while($row = mysqli_fetch_assoc($result)){
+        $customerList[$i]= $row;
+        $i = $i+1;
     }
     return $customerList ;
-    
 }
 
 function getUnactiveCustomer($conn){
@@ -609,7 +609,7 @@ function getCollectionForAgent($conn,$agentId){
     $result = $conn->query($sql);
     $data = array();
     $i=0;
-   while($row = mysqli_fetch_assoc($result)){
+    while($row = mysqli_fetch_assoc($result)){
         $eachRow = array(
             "date"=>$row['date'],
             "count"=>$row['count(fee)'],
@@ -644,8 +644,8 @@ function agent_transactionReport($conn,$agentId){
     $result = $conn->query($sql);
     $data = array();
     $i=0;
-   while($row = mysqli_fetch_assoc($result)){
-    $data[] = $row;
+    while($row = mysqli_fetch_assoc($result)){
+        $data[] = $row;
     }
     return $data;
 }
@@ -718,7 +718,7 @@ function getPLData($conn,$perDay){
     $data["saleRate"] = $saleRate;
     $data["buyRate"] = $buyRate;
 
-    
+
     if($saleRate!="N/A" && $buyRate!="N/A"){
 
         $saleRateAmount = $saleRate*$perDay["amount"];
@@ -742,12 +742,12 @@ function getPLData($conn,$perDay){
 function searchSenderByName($conn, $query){
 
     $result = $conn->query("SELECT id, CONCAT(f_name, ' ', middle_name,' ', l_name, ',', email, ',' , mobile_no) as detail " .
-                      "FROM customer_sas WHERE CONCAT(f_name, ' ', middle_name,' ', l_name, ',', email, ',' , mobile_no) LIKE '" . $query . "%' LIMIT 10");
+        "FROM customer_sas WHERE CONCAT(f_name, ' ', middle_name,' ', l_name, ',', email, ',' , mobile_no) LIKE '" . $query . "%' LIMIT 10");
 
     $response = array();
     for($i = 0; $row = mysqli_fetch_assoc($result); $i++){
 
-       $response[$row["id"]] = $row["detail"];
+        $response[$row["id"]] = $row["detail"];
     }
 
     return $response;

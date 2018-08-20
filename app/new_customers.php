@@ -39,7 +39,6 @@ adminValidator();
         <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
             <th>Email</th>
         </tr>
         </thead>
@@ -49,9 +48,8 @@ adminValidator();
         foreach($customerList as $customer){
             ?>
             <tr>
-                <td><?php echo $customer["uid"];?></td>
-                <td><a href = "customerProfile.php?id=<?php echo $customer["uid"];?>  "><?php echo $customer["f_name"] .' '.$customer["l_name"];?></a></td>
-                <td><?php echo $customer["email"]?></td>
+                <td><?php echo $customer["id"];?></td>
+                <td><?php echo $customer["username"]?></td>
             </tr>
             <?php
         }

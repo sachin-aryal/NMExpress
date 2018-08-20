@@ -11,6 +11,19 @@ function getAllPayments($conn, $user_id){
     return getPayments($conn, $result, "All");
 }
 
+function getFullPayment($conn, $limit, $offset){
+    $query = "SELECT * FROM payment_sas ORDER BY payment_date DESC LIMIT $offset, $limit";
+    $result = $conn->query($query);
+    return getPayments($conn, $result, "Both");
+}
+
+function getPaymentCount($conn){
+    $query = "SELECT COUNT(id) as totalCount FROM payment_sas";
+    $rs_result = $conn->query($query);
+    $row = mysqli_fetch_row($rs_result);
+    return $row[0];
+}
+
 function getCustomerTransactionHistory($conn,$customer_id){
     $result = $conn->query("SELECT * FROM payment_sas WHERE sender_id = " . $customer_id);
     return getPayments($conn, $result, "Both");

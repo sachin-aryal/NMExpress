@@ -163,9 +163,11 @@ if(isset($_SESSION["sendRateChangeEmail"])){
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8" id="orders-div">
+        <div class="col-md-12" id="orders-div">
             <div class="col-md-12" id="orders">
-                <h3>Orders in Nepal Money Express</h3>
+                <div>
+                    <h3>Orders in Nepal Money Express</h3>
+                </div>
                 <ul id="order-nav">
                     <li class="active-order-nav" onclick="fetchOrder(this, 'Recent')">Recent Orders</li>
                     <li onclick="fetchOrder(this, 'Pending')">Pending Orders</li>

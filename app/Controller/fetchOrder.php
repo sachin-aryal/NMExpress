@@ -41,7 +41,6 @@ $options = array("Not Received", "Bank", "Agent", "Cash");
                                 '</tr>' :
                                 '';
                         } ).join('');
-
                         return data ?
                             $('<table/>').append( data ) :
                             false;

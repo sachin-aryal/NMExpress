@@ -38,6 +38,7 @@ $oldServiceCharge = getServiceCharge($conn);
                     </li>
 
                     <li><a href="agentList.php">Agents</a></li>
+                    <li><a href="orders.php">Orders</a></li>
                     <li><a href="subscriberList.php">Subscribers</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports <span class="caret"></span></a>
