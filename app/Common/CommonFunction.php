@@ -455,7 +455,7 @@ function getRandomString(){
 }
 
 function getAgentInfo($conn,$agent_id){
-    $result = $conn->query("SELECT * FROM agent_sas where user_id = $agent_id");
+    $result = $conn->query("SELECT * FROM agent_sas where id = $agent_id");
     $agent_row = $result->fetch_assoc();
     return $agent_row;
 }

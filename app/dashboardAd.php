@@ -102,9 +102,9 @@ if(isset($_SESSION["sendRateChangeEmail"])){
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-2">
+        <div class="col-xs-1">
         </div>
-        <div class="currencyConverterBoxAdmin col-xs-3">
+        <div class="currencyConverterBoxAdmin col-xs-4">
             <h3 class="media-heading text-center">Selling Rate</h3>
             <form class="form-inline" action="Controller/changeExchangeRate.php" method="post">
 
@@ -123,7 +123,7 @@ if(isset($_SESSION["sendRateChangeEmail"])){
                     </p>
                     <p>
 
-                        <button type="submit" onclick = "return validateDashboardAd()" class="btn btn-primary">Save</button>
+                        <button style="margin-left: 68px" type="submit" onclick = "return validateDashboardAd()" class="btn btn-primary">Save</button>
 
                     </p>
                 </div>
@@ -134,7 +134,7 @@ if(isset($_SESSION["sendRateChangeEmail"])){
         </div>
         <div class="col-xs-1">
         </div>
-        <div class="currencyConverterBoxAdmin col-xs-3">
+        <div class="currencyConverterBoxAdmin col-xs-4">
             <h3 class="media-heading text-center">Buyer Rate</h3>
             <form class="form-inline" action="Controller/changeBuyerRate.php" method="post">
 
@@ -153,7 +153,7 @@ if(isset($_SESSION["sendRateChangeEmail"])){
                     </p>
                     <p>
 
-                        <button type="submit" onclick = "return validateDashboardAd()" class="btn btn-primary">Save</button>
+                        <button style="margin-left: 68px" type="submit" onclick = "return validateDashboardAd()" class="btn btn-primary">Save</button>
 
                     </p>
                 </div>
